@@ -1,6 +1,7 @@
 package com.sirma.staffmanagementsystem.entitiy;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Employee implements Serializable {
@@ -101,6 +102,10 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return id + "," + name + "," + startDate + "," + endDate + "," + department + "," + role + "," + salary;
+        return id + "," + name + "," + formatDate(startDate) + "," + formatDate(endDate) + "," + department + "," + role + "," + salary;
+    }
+
+    private String formatDate(Date date) {
+        return (date != null) ? new SimpleDateFormat("yyyy-MM-dd").format(date) : "null";
     }
 }
