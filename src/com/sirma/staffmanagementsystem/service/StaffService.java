@@ -11,8 +11,8 @@ public class StaffService extends Service {
 
     private Map<Long, Employee> employees;
 
-    public StaffService(Writer writer, Reader reader) {
-        super(writer, reader);
+    public StaffService(Reader reader, Writer writer) {
+        super(reader, writer);
         this.employees = loadEmployees();
     }
 
@@ -41,12 +41,12 @@ public class StaffService extends Service {
     }
 
     @Override
-    List<Employee> getAllEmployees() {
+   public List<Employee> getAllEmployees() {
         return List.copyOf(employees.values());
     }
 
     @Override
-    void saveEmployee(Employee employee) {
+   public void saveEmployee(Employee employee) {
         Long id = employee.getId();
 
         // Check if an employee with the same ID already exists
@@ -63,17 +63,22 @@ public class StaffService extends Service {
     }
 
     @Override
-    void deleteEmployee(Long id) {
+    public boolean deleteEmployee(Long id) {
 
-        // Remove the employee from the map
-        employees.remove(id);
+        if (employees.containsKey(id)) {
+            // Remove the employee from the map
+            employees.remove(id);
 
-        // Save the updated map to the file using the writer
-        getWriter().write(employees, "employees.csv");
+            // Save the updated map to the file using the writer
+            getWriter().write(employees, "employees.csv");
+            return true;
+        }
+        else return false;
+
     }
 
     @Override
-    void updateEmployee(Long id, String name, String department, double salary) {
+    public boolean updateEmployee(Long id, String name, String department, double salary) {
 
         // Check if an employee with the given ID exists
         if (employees.containsKey(id)) {
@@ -86,9 +91,9 @@ public class StaffService extends Service {
             // Save the updated map to the file using the writer
             getWriter().write(employees, "employees.csv");
 
-            System.out.println("Employee with ID " + id + " updated successfully.");
+            return true;
         } else {
-            System.out.println("Cannot update employee. Employee with ID " + id + " does not exist.");
+            return false;
         }
     }
 

@@ -11,18 +11,18 @@ public abstract class Service {
     private Writer writer;
     private Reader reader;
 
-    public Service(Writer writer, Reader reader) {
+    public Service( Reader reader, Writer writer) {
         this.writer = writer;
         this.reader = reader;
     }
 
-    abstract  Employee getById (Long id);
-    abstract List<Employee> getByName (String name);
-    abstract List<Employee> getByDepartment (String department);
-    abstract List<Employee> getAllEmployees();
-    abstract void saveEmployee(Employee employee);
-    abstract void deleteEmployee(Long id);
-    abstract void updateEmployee(Long id, String name,String department, double salary);
+    public abstract  Employee getById (Long id);
+    public abstract List<Employee> getByName (String name);
+    public abstract List<Employee> getByDepartment (String department);
+    public abstract List<Employee> getAllEmployees();
+    public abstract void saveEmployee(Employee employee);
+    public abstract boolean deleteEmployee(Long id);
+    public abstract boolean updateEmployee(Long id, String name,String department, double salary);
 
     public Writer getWriter() {
         return writer;

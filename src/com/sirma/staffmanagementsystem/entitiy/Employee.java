@@ -2,6 +2,7 @@ package com.sirma.staffmanagementsystem.entitiy;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Employee implements Serializable {
@@ -36,7 +37,20 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
+    // Specific Constructor for adding employee into the data
+    public Employee(Long id, String name, String department, String role, double salary) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.role = role;
+        this.salary = salary;
+        this.endDate = null;
+        setStartDateToNow();
+    }
 
+    public void setStartDateToNow() {
+        this.startDate = java.sql.Timestamp.valueOf(LocalDateTime.now());
+    }
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
