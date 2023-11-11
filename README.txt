@@ -1,17 +1,14 @@
 
 Entities:
-
 1.Employee:
     Long ID
     String name,
     String department,
     double salary,
-    UserRole role
-
-2. User Role --> enum
-    admin, employee
-
-
+    String role,
+    Date StartDate,
+    Date EndDate,
+---------------------------------------------------------------------------------------------------------
 FileManipulators:
 
 interfaces:
@@ -21,11 +18,15 @@ interfaces:
 classes:
  1. CsvFileReader
  2. CsvFileWriter
-
+--------------------------------------------------------------------------------------------------------
 Services:
-1. abstract class Service -->getByName(), getById(),
+1. abstract class Service -->
+fields : Writer, Reader
+methods: getByName(), getById(), getByDepartment(), getAllEmployees();
 
-
+2. class StaffService extends Service
+fields: Map employees
+------------------------------------------------------------------------------------------------
 DataManagement:
 
 abstract class:
