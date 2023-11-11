@@ -24,7 +24,7 @@ public class StaffManagementApp {
 
         while (isRunning) {
             Scanner command = new Scanner(System.in);
-            isRunning = manager.execute(command);
+            isRunning = manager.execute(command); // This line is not like in the description.
         }
     }
 

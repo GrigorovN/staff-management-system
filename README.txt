@@ -1,3 +1,4 @@
+Staff Management App
 
 Entities:
 1.Employee:
@@ -29,8 +30,12 @@ fields: Map employees
 ------------------------------------------------------------------------------------------------
 DataManagement:
 
-abstract class:
- Manager ---> execute
+interface :
+ Manager ---> methods for all possible commands plus the  method execute
+ class:
+ StaffManager ---> implementing manager and has a Service field
+
+
 
  Method in main class :             displayCommands()
                                 System.out.println("Select an option:");
