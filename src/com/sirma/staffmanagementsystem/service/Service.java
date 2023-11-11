@@ -16,10 +16,13 @@ public abstract class Service {
         this.reader = reader;
     }
 
-    abstract  Employee getById (Long Id);
+    abstract  Employee getById (Long id);
     abstract List<Employee> getByName (String name);
     abstract List<Employee> getByDepartment (String department);
     abstract List<Employee> getAllEmployees();
+    abstract void saveEmployee(Employee employee);
+    abstract void deleteEmployee(Long id);
+    abstract void updateEmployee(Long id, String name,String department, double salary);
 
     public Writer getWriter() {
         return writer;

@@ -36,6 +36,7 @@ public class Employee implements Serializable {
         this.salary = salary;
     }
 
+
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }

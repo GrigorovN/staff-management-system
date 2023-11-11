@@ -22,7 +22,7 @@ classes:
 Services:
 1. abstract class Service -->
 fields : Writer, Reader
-methods: getByName(), getById(), getByDepartment(), getAllEmployees();
+methods: getByName(), getById(), getByDepartment(), getAllEmployees(), saveEmployee(), deleteEmployee(), updateEmployee();
 
 2. class StaffService extends Service
 fields: Map employees
